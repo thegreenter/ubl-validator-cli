@@ -1,0 +1,18 @@
+{
+  "alias": "composer.phar",
+  "chmod": "0755",
+  "directories": ["src"],
+  "finder": [
+    {
+      "name": "*.php",
+      "exclude": ["tests"],
+      "in": "vendor"
+    }
+  ],
+  "compression" : "GZ",
+  "main" : "bin/ubl",
+  "output": "ubl.phar",
+  "stub": true,
+  "web": false,
+  "banner": "UBL Validator"
+}
