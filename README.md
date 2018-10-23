@@ -2,13 +2,8 @@
 
 Console Application for UBL Validator.
 
-## Uso
-From Source
+## Use
+
 ```php
 php bin/ubl validate /path/file.xml
-```
-
-From .phar
-```php
-php ubl.phar validate /path/file.xml
 ```
