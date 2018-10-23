@@ -8,5 +8,6 @@ use Symfony\Component\Console\Application;
 
 $application = new Application('UBL-Validator', '1.0');
 $application->add(new ValidateCommand());
+$application->setDefaultCommand('validate');
 
 $application->run();
