@@ -44,7 +44,7 @@ class ValidateCommand extends Command
         }
         $xml = file_get_contents($file);
 
-        if (empty($version) && ($version = $this->getVersion($xml))) {
+        if (empty($version) && empty($version = $this->getVersion($xml))) {
             $output->writeln('<error>UBL Version not found.</error>');
             return;
         }
