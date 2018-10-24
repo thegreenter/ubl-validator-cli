@@ -49,6 +49,8 @@ class ValidateCommand extends Command
             return;
         }
 
+        $output->writeln("<info>UBL Version: $version</info>");
+
         $validator = new SchemaValidator();
         $validator->setVersion($version);
 
