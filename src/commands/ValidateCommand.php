@@ -8,8 +8,9 @@
 
 namespace App\commands;
 
+use Greenter\Ubl\Resolver\UblPathResolver;
 use Greenter\Ubl\Resolver\UblVersionResolver;
-use Greenter\Ubl\SchemaValidator;
+use Greenter\Ubl\UblValidator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -20,6 +21,22 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class ValidateCommand extends Command
 {
+    /**
+     * @var UblPathResolver
+     */
+    private $pathResolver;
+
+    /**
+     * ValidateCommand constructor.
+     */
+    public function __construct()
+    {
+        $this->pathResolver = new UblPathResolver();
+
+        parent::__construct();
+    }
+
+
     protected function configure()
     {
         $this
@@ -42,31 +59,37 @@ class ValidateCommand extends Command
             $output->writeln("<error>File $file not found.</error>");
             return;
         }
-        $xml = file_get_contents($file);
+        $doc = $this->getDocument($file);
 
-        if (empty($version) && empty($version = $this->getVersion($xml))) {
+        if (empty($version) && empty($version = $this->getVersion($doc))) {
             $output->writeln('<error>UBL Version not found.</error>');
             return;
         }
-
+        $this->pathResolver->version = $version;
         $output->writeln("<info>UBL Version: $version</info>");
 
-        $validator = new SchemaValidator();
-        $validator->setVersion($version);
+        $validator = new UblValidator();
+        $validator->pathResolver = $this->pathResolver;
 
-        $result = $validator->validate($xml);
-
-        if ($result) {
-            $output->writeln('<info>SUCCESS!!!</info>');
+        if ($validator->isValid($doc)) {
+            $output->writeln('<fg=black;bg=green>SUCCESS!!!</>');
         } else {
-            $output->writeln("<error>{$validator->getMessage()}</error>");
+            $output->writeln("<error>{$validator->getError()}</error>");
         }
     }
 
-    private function getVersion($xml)
+    private function getVersion(\DOMDocument $doc)
     {
         $resolver = new UblVersionResolver();
 
-        return $resolver->getVersion($xml);
+        return $resolver->getVersion($doc);
+    }
+
+    private function getDocument($file)
+    {
+        $doc = new \DOMDocument();
+        $doc->load($file);
+
+        return $doc;
     }
 }
