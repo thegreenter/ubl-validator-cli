@@ -1,0 +1,8 @@
+.git
+.idea
+doc
+.gitignore
+/box.json
+/buildphar.sh
+/composer*
+/*.md
