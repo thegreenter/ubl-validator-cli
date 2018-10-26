@@ -13,8 +13,9 @@
     "type": "project",
     "require": {
 	    "php": "^7.1",
-        "greenter/ubl-validator": "^1.1",
-        "symfony/console": "^4.1"
+        "greenter/ubl-validator": "^2.0",
+        "symfony/console": "^4.1",
+        "ext-dom": "*"
     },
 	"autoload": {
         "psr-4": {
