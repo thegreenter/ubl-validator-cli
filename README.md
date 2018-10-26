@@ -5,5 +5,7 @@ Console Application for UBL Validator.
 ## Use
 
 ```php
-php bin/ubl validate /path/file.xml
+./bin/ubl validate /path/file.xml
 ```
+
+![Output result](doc/output.png)
