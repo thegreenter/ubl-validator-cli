@@ -2,15 +2,14 @@ FROM php:7.1-alpine
 LABEL owner="Giancarlos Salas"
 LABEL maintainer="giansalex@gmail.com"
 
-COPY . /var/www/html/
+COPY . /app
 
-WORKDIR /var/www/html
+WORKDIR /app
 
-RUN mkdir xml && \
-    chmod -R 777 xml/ && \
+RUN mkdir /xml && \
+    chmod -R 777 /xml && \
     chmod +x bin/ubl
 
-
-VOLUME /var/www/html/xml
+VOLUME /xml
 
 ENTRYPOINT ["php", "./bin/ubl"]
