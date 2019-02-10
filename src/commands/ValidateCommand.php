@@ -8,13 +8,17 @@
 
 namespace App\commands;
 
-use Greenter\Ubl\Resolver\UblPathResolver;
-use Greenter\Ubl\Resolver\UblVersionResolver;
+use Greenter\Ubl\Resolver\{
+    UblPathResolver,
+    UblVersionResolver
+};
 use Greenter\Ubl\UblValidator;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\{
+    Command\Command,
+    Input\InputArgument,
+    Input\InputInterface,
+    Output\OutputInterface
+};
 
 /**
  * Class ValidateCommand
@@ -47,7 +51,8 @@ class ValidateCommand extends Command
 
         $this
             ->addArgument('file', InputArgument::REQUIRED, 'XML Path')
-            ->addArgument('version', InputArgument::OPTIONAL, 'UBL Version.')
+            ->addArgument('version', InputArgument::OPTIONAL, 'UBL Version')
+            ->addArgument('directory', InputArgument::OPTIONAL, 'XSD Directory')
         ;
     }
 
@@ -55,6 +60,8 @@ class ValidateCommand extends Command
     {
         $file = $input->getArgument('file');
         $version = $input->getArgument('version');
+        $directory = $input->getArgument('directory');
+
         if (!file_exists($file)) {
             $output->writeln("<error>File $file not found.</error>");
             return;
@@ -65,6 +72,11 @@ class ValidateCommand extends Command
             $output->writeln('<error>UBL Version not found.</error>');
             return;
         }
+
+        if (!empty($directory)) {
+            $this->pathResolver->baseDirectory = $directory;
+        }
+
         $this->pathResolver->version = $version;
         $output->writeln("<info>UBL Version: $version</info>");
 
