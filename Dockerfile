@@ -4,6 +4,6 @@ LABEL maintainer="giansalex@gmail.com"
 
 COPY . /app
 
-WORKDIR /app
+WORKDIR /xml
 
-ENTRYPOINT ["php", "./bin/ubl"]
+ENTRYPOINT ["php", "/app/bin/ubl"]
