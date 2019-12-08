@@ -64,13 +64,13 @@ class ValidateCommand extends Command
 
         if (!file_exists($file)) {
             $output->writeln("<error>File $file not found.</error>");
-            return;
+            return 1;
         }
         $doc = $this->getDocument($file);
 
         if (empty($version) && empty($version = $this->getVersion($doc))) {
             $output->writeln('<error>UBL Version not found.</error>');
-            return;
+            return 1;
         }
 
         if (!empty($directory)) {
@@ -83,11 +83,13 @@ class ValidateCommand extends Command
         $validator = new UblValidator();
         $validator->pathResolver = $this->pathResolver;
 
-        if ($validator->isValid($doc)) {
-            $output->writeln('<fg=black;bg=green>SUCCESS!!!</>');
-        } else {
+        if (!$validator->isValid($doc)) {
             $output->writeln("<error>{$validator->getError()}</error>");
+            return 1;        
         }
+
+        $output->writeln('<fg=black;bg=green>SUCCESS!!!</>');
+        return 0;
     }
 
     private function getVersion(\DOMDocument $doc)

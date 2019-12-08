@@ -4,6 +4,9 @@ Console Application for [UBL Validator](https://github.com/giansalex/ubl-validat
 
 <p align="center"><img src="/doc/demo.gif?raw=true"/></p>
 
+## Requirements
+- PHP >=7.2 
+
 ## Use
 
 ```php

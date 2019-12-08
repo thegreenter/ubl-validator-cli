@@ -12,9 +12,9 @@
     "homepage": "https://github.com/giansalex/ubl-validator-cli",
     "type": "project",
     "require": {
-	    "php": "^7.1",
+	    "php": "^7.2",
         "greenter/ubl-validator": "^2.1",
-        "symfony/console": "^4.2",
+        "symfony/console": "^5.0",
         "ext-dom": "*"
     },
 	"autoload": {
