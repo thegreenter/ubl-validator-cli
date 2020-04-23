@@ -9,7 +9,7 @@
             "email": "giansalex@gmail.com"
         }
     ],
-    "homepage": "https://github.com/giansalex/ubl-validator-cli",
+    "homepage": "https://github.com/thegreenter/ubl-validator-cli",
     "type": "project",
     "require": {
 	    "php": "^7.2",

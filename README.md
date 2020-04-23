@@ -1,6 +1,6 @@
 # UBL Validator CLI
 
-Console Application for [UBL Validator](https://github.com/giansalex/ubl-validator).
+Console Application for [UBL Validator](https://github.com/thegreenter/ubl-validator).
 
 <p align="center"><img src="/doc/demo.gif?raw=true"/></p>
 
