@@ -4,5 +4,4 @@ doc
 .gitignore
 /box.json
 /buildphar.sh
-/composer*
 /*.md
