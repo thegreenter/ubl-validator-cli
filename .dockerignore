@@ -2,6 +2,7 @@
 .idea
 doc
 .gitignore
+vendor
 /box.json
 /buildphar.sh
 /*.md
