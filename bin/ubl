@@ -6,7 +6,7 @@ require __DIR__.'/../vendor/autoload.php';
 use App\commands\ValidateCommand;
 use Symfony\Component\Console\Application;
 
-$application = new Application('UBL-Validator', '1.0');
+$application = new Application('OASIS UBL Schema Validator', '1.0');
 $application->add(new ValidateCommand());
 $application->setDefaultCommand('validate');
 
