@@ -9,7 +9,7 @@ Console Application for [UBL Validator](https://github.com/thegreenter/ubl-valid
 
 ## Use
 
-```php
+```sh
 ./bin/ubl validate invoice.xml
 ```
 
@@ -18,6 +18,6 @@ Console Application for [UBL Validator](https://github.com/thegreenter/ubl-valid
 ## Docker Hub
 
 Puedes encontrar la imagen en [Docker Hub](https://hub.docker.com/r/giansalex/ubl/).
-```php
+```sh
 docker pull giansalex/ubl
 ```
