@@ -8,6 +8,7 @@
 
 namespace App\commands;
 
+use DOMDocument;
 use Greenter\Ubl\Resolver\{
     UblPathResolver,
     UblVersionResolver
@@ -92,7 +93,7 @@ class ValidateCommand extends Command
         return 0;
     }
 
-    private function getVersion(\DOMDocument $doc)
+    private function getVersion(DOMDocument $doc)
     {
         $resolver = new UblVersionResolver();
 
@@ -101,7 +102,7 @@ class ValidateCommand extends Command
 
     private function getDocument($file)
     {
-        $doc = new \DOMDocument();
+        $doc = new DOMDocument();
         $doc->load($file);
 
         return $doc;
