@@ -12,10 +12,10 @@
     "homepage": "https://github.com/thegreenter/ubl-validator-cli",
     "type": "project",
     "require": {
-	    "php": "^7.2",
+	    "php": ">=7.2",
+        "ext-dom": "*",
         "greenter/ubl-validator": "^2.1",
-        "symfony/console": "^5.0",
-        "ext-dom": "*"
+        "symfony/console": "^5.2"
     },
 	"autoload": {
         "psr-4": {
