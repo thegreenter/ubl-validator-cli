@@ -8,7 +8,7 @@ COPY . .
 RUN composer install --no-interaction --no-dev --optimize-autoloader 
 
 
-FROM amd64/php:8.0-alpine
+FROM php:8.0-alpine
 LABEL owner="Giancarlos Salas"
 LABEL maintainer="giansalex@gmail.com"
 
