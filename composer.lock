@@ -8,22 +8,25 @@
     "packages": [
         {
             "name": "greenter/ubl-validator",
-            "version": "v2.1.0",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thegreenter/ubl-validator.git",
-                "reference": "a1aab4ece6b34a097e466dd192a5e7c86a708e8e"
+                "reference": "3de54fbf07b2539ca22fbb88e623153682fbc15a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thegreenter/ubl-validator/zipball/a1aab4ece6b34a097e466dd192a5e7c86a708e8e",
-                "reference": "a1aab4ece6b34a097e466dd192a5e7c86a708e8e",
+                "url": "https://api.github.com/repos/thegreenter/ubl-validator/zipball/3de54fbf07b2539ca22fbb88e623153682fbc15a",
+                "reference": "3de54fbf07b2539ca22fbb88e623153682fbc15a",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5"
             },
             "type": "library",
             "autoload": {
@@ -42,7 +45,7 @@
                 }
             ],
             "description": "OASIS Universal Business Language Schema Validator UBL v2.0, UBL v2.1",
-            "homepage": "https://github.com/giansalex/ubl-validator",
+            "homepage": "https://github.com/thegreenter/ubl-validator",
             "keywords": [
                 "greenter",
                 "invoice",
@@ -51,9 +54,9 @@
             ],
             "support": {
                 "issues": "https://github.com/thegreenter/ubl-validator/issues",
-                "source": "https://github.com/thegreenter/ubl-validator/tree/v2.1.0"
+                "source": "https://github.com/thegreenter/ubl-validator/tree/v2.2.0"
             },
-            "time": "2019-02-10T20:58:02+00:00"
+            "time": "2022-12-19T17:10:43+00:00"
         },
         {
             "name": "psr/container",
